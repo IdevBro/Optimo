@@ -1,8 +1,12 @@
 import React from "react";
-import SideBarCard from "../shared/SidebarCard";
+import SideBarCard from "@/components/shared/SidebarCard";
 
 const Sidebar = () => {
-  const menuItems = [
+  interface meniItem {
+    label: string;
+    href: string;
+  }
+  const menuItems: meniItem[] = [
     { label: "Statistika", href: "/statistic" },
     { label: "Adminlar", href: "/admin" },
     { label: "Tutor", href: "/tutor" },
@@ -11,8 +15,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="bg-red-500">
-      <h1>Sidebar</h1>
+    <div className=" shadow bg-white">
       {menuItems.map((item) => (
         <SideBarCard key={item.href} label={item.label} href={item.href} />
       ))}

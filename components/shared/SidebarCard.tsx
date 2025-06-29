@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { usePathname } from "next/navigation";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 interface SideBarItemProps {
@@ -14,12 +13,15 @@ const SideBarCard: React.FC<SideBarItemProps> = ({ label, href }) => {
 
   return (
     <Link href={href} className="block">
-      <Button
-        variant={pathname === href ? "secondary" : "ghost"}
-        className="bg-white w-full justify-start text-left"
+      <button
+        className={`shadow py-[40px] px-[20px] w-full  ${
+          pathname === href
+            ? "text-blue border-l-[4px] border-blue"
+            : "text-dark"
+        }`}
       >
         {label}
-      </Button>
+      </button>
     </Link>
   );
 };
